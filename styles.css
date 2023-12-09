@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.8); /* რადგან ყველაფრის ფერი ჩვენს ფეიჯზე არის ცოტა ღია */  
+}
+a {
+    color: rgba(0, 0, 0, 0.8);
+}
+ul {
+    list-style: none;
+}
+/* ღილაკის სტილი მაქვს ცალკე კლასში რადგან ყველა ღილაკი ჩვენს გვერდზე თითქმის ერთნაირია */  
+.button {
+    color: rgb(25, 118, 210);
+    border: 1px solid rgba(25, 118, 210, 0.5);
+    background-color: transparent;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+}
+header {
+    position: fixed; /* რადგან ჩამოსქროლვისას header ჩამოყვეს */  
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 65px;
+    background-color: #D4D4D4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    z-index: 1; /* რადგან ჩამოსქროლვისას header-ი ზემოდან გადაედოს ყველაფერს */ 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+header .title {
+    font-size: 20px;
+}
+header .linkContainer, header nav {
+    display: flex;
+    gap: 15px;
+}
+header .linkContainer {
+    text-transform: uppercase;
+    font-size: 14px;
+    align-items: center;
+}
+main {
+    display: flex;
+    padding: 80px 0px;
+    margin-top: 65px; /* რადგან 65px არის header-ის სიმაღლე და margin-top იმიტო მჭირდება რომ header-ს position უწერია და ამიტომ ისე აღიქმება რო ადგილს არ იკავებს */ 
+    justify-content: center;
+}
+main .mainContainer {
+    width: 50%;
+    gap: 36px;
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: inherit;
+    text-align: center;
+}
+main .title {
+    font-size: 60px;
+    font-weight: normal;
+}
+main .descriptionContainer {
+    display: flex;
+    justify-content: center;
+}
+main .descriptionContainer .description {
+    width: 55%;
+    opacity: 0.8;
+    line-height: 31px; /* ხაზებს შორის დაშორება */ 
+    font-size: 24px;
+}
+main .pricingContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+main .pricingBox {
+    width: 30%;
+    height: auto;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    border-radius: 10px;
+}
+main .pricingBox .titleContainer {
+    background-color: rgba(128, 128, 128, 0.342);
+    padding: 15px 0px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; /* რადგან მასში მყოფმა აიქონმა ამ ელემენტის მიხედვით აიღოს პოზიციები */ 
+    border-radius: 8px 8px 0px 0px; /* 4 პარამეტრი იმიტო გადავეცით რო ამ ნაცრისფერ არეს მარტო ზემოთა მხარეს უნდა ქონდეს ბორდერები */ 
+    font-size: 25px;
+    font-weight: normal;
+}
+main .pricingBox .titleContainer .popularity {
+    opacity: 0.8;
+    font-size: 17px;
+}
+main .pricingBox .titleContainer i {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 20px;
+}
+main .pricingBox .description {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    padding: 20px 5px 5px 5px;
+}
+main .pricingBox .description .price {
+    color: black; /* აქ შავი ფერის დაწერა დამჭირდა იმიტორო ზემოთ მეწერა რო ყველაფრის ფერი ცოტა ღია იყოს, შესაბამისად აქ რო color: black დახვდება, ამ სტილს გადააწერს */ 
+    font-size: 60px;
+}
+main .pricingBox .description .price::after {
+    content: '/mo'; /* აქ after ელემენტით გავაკეთე /mo ტექსტი და ეს იყო ყველაზე კაი ვარიანტი როგორც შეგვეძლო */ 
+    font-size: 30px;
+    opacity: 0.8;
+}
+main .pricingBox .description ul li {
+    margin: 5px 0px;
+    font-size: 17px;
+}
+main .pricingBox button {
+    width: 100%;
+}
+/* ცალკე მყოფი კლასი რაც მქონდა ღილაკის ამ კონკრეტული ღილაკისთვის color და background-color შევცვალე */ 
+main .pricingBox:nth-child(2) button {
+    color: white;
+    background-color: rgb(25, 118, 210);
+}
+footer {
+    width: 52%;
+    margin: 0px auto;
+    border-top: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 0px;
+}
+footer .linksContainer {
+    padding: 0px 10px;
+    display: inherit;
+    width: 100%;
+    justify-content: space-between;
+    gap: 60px;
+    text-transform: capitalize;
+}
+footer .linksContainer .linksBox {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0.8;
+}
